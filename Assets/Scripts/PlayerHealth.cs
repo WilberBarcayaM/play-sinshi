@@ -128,8 +128,16 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator GameOverSequence()
     {
-        yield return new WaitForSeconds(2f);
+        // yield return new WaitForSeconds(2f);
+        // Debug.Log("GAME OVER");
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("GAME OVER");
+
+        // ✅ Mostrar pantalla de Game Over
+        if (GameOver.Instance != null)
+            GameOver.Instance.ShowGameOver();
+        else
+            Debug.LogWarning("No se encontró GameOver en la escena");
     }
 
     // Método para reiniciar

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Demon : MonoBehaviour
 {
     [Header("Configuración de Ataque")]
-    public float attackInterval = 3f;
+    public float attackInterval = 1.5f;
     public float attackDuration = 1f;
     public int attackDamage = 20; // Cambiado de 20 a 25 (25% de daño por golpe)
 
