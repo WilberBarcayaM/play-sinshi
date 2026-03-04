@@ -4951,6 +4951,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1106564699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1106564701}
+  - component: {fileID: 1106564700}
+  m_Layer: 0
+  m_Name: GameSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1106564700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106564699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9daacbb505dc954f8d663542e1d76d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWalk: {fileID: 8300000, guid: 319001bd9718f9a4086827b73ec6832a, type: 3}
+  playerJump: {fileID: 8300000, guid: 1f398221369711a4688fa178d5a149fe, type: 3}
+  playerAttackPunch: {fileID: 8300000, guid: d3229dde1d239414caf18bf89f8349dc, type: 3}
+  playerAttackSword: {fileID: 8300000, guid: c2955a95094264f41affffc0bf04b36c, type: 3}
+  demonAttack: {fileID: 8300000, guid: afd765b175cb4134fa3baeecadfca264, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: b1d1ff706d38e7748971c3c2e618d4be, type: 3}
+  musicVolume: 0.181
+  volume: 1
+--- !u!4 &1106564701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106564699}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3042712, y: 4.0102906, z: -0.08510099}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1269999188
 GameObject:
   m_ObjectHideFlags: 0
@@ -6478,3 +6530,4 @@ SceneRoots:
   - {fileID: 14263682}
   - {fileID: 393151553}
   - {fileID: 1307586748}
+  - {fileID: 1106564701}

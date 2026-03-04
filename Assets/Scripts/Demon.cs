@@ -14,7 +14,7 @@ public class Demon : MonoBehaviour
 
     [Header("Referencias")]
     public Animator animator;
-    
+
     [Header("Audio")]
     public AudioClip attackSound;
     private AudioSource audioSource;
@@ -71,14 +71,10 @@ public class Demon : MonoBehaviour
             isAttacking = true;
             animator.SetBool("IsAttacking", true);
             // DEBUG: Verificar el daño configurado
-        Debug.Log($"[DEBUG] Demon atacando con {attackDamage} de daño");
-        
-            
-            // Reproducir sonido de ataque
-            if (attackSound != null)
-            {
-                audioSource.PlayOneShot(attackSound);
-            }
+            Debug.Log($"[DEBUG] Demon atacando con {attackDamage} de daño");
+
+            // Reproducir sonido de ataque solo si el demonio está visible en cámara 
+            AudioManager.Instance.PlayDemonAttack(gameObject);
 
             // Causar daño al jugador si está en rango
             DamagePlayer();
@@ -108,7 +104,7 @@ public class Demon : MonoBehaviour
         if (distanceToPlayer <= attackRange)
         {
             PlayerHealth playerHealth = playerTransform.GetComponent<PlayerHealth>();
-            
+
             if (playerHealth != null && !playerHealth.IsDead())
             {
                 playerHealth.TakeDamage(attackDamage);
