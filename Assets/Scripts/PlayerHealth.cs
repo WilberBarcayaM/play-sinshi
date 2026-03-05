@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private Image healthFillImage; // La imagen FillLife
 
+    [Header("Fall Detection")]
+    [SerializeField] private float fallLimit = -10f; 
+
     [Header("Damage Settings")]
     [SerializeField] private float invulnerabilityTime = 0.5f;
     [SerializeField] private float hitAnimationDuration = 0.4f; // Duración de la animación Hit
@@ -157,6 +160,16 @@ public class PlayerHealth : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("Hit", false);
+        }
+    }
+
+    void Update()
+    {
+        // ← Agrega este método completo
+        if (transform.position.y < fallLimit && !isDead)
+        {
+            Debug.Log("Jugador cayó al vacío!");
+            Die();
         }
     }
 
