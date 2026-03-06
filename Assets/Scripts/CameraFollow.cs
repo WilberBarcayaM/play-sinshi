@@ -9,15 +9,24 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector3 offset = new Vector3(0f, 2f, -10f); // Offset de la cámara
     [SerializeField] private float smoothSpeed = 0.125f; // Velocidad de suavizado (0 = instantáneo, 1 = muy lento)
     [SerializeField] private bool smoothFollow = true; // Seguimiento suave o instantáneo
+
+    
+    [Header("Zoom Settings")]
+    [SerializeField] private float cameraSize = 8f;
     
     [Header("Bounds Settings (Opcional)")]
     [SerializeField] private bool useBounds = false; // Limitar movimiento de cámara
     [SerializeField] private Vector2 minBounds; // Límite inferior izquierdo
     [SerializeField] private Vector2 maxBounds; // Límite superior derecho
 
+    private Camera cam;
+
     void Start()
     {
-        // Si no se asignó un target, buscar automáticamente al jugador
+        cam = GetComponent<Camera>();
+        if (cam != null)
+            cam.orthographicSize = cameraSize;
+
         if (target == null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");

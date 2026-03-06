@@ -115,6 +115,8 @@ public class EnemyHealth : MonoBehaviour
         // Detener ataques
         StopAllCoroutines();
 
+        CheckAllEnemiesDefeated();
+
         // Destruir el enemigo inmediatamente
         Destroy(gameObject);
 
@@ -130,6 +132,22 @@ public class EnemyHealth : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthBar();
+    }
+
+    private void CheckAllEnemiesDefeated()
+    {
+        EnemyHealth[] enemies = FindObjectsOfType<EnemyHealth>();
+
+        // Solo queda 1 porque este aún no fue destruido
+        if (enemies.Length <= 1)
+        {
+            Debug.Log("¡Todos los enemigos derrotados!");
+
+            if (LevelComplete.Instance != null)
+                LevelComplete.Instance.ShowLevelComplete();
+            else
+                Debug.LogWarning("No se encontró LevelComplete en la escena");
+        }
     }
 
     // Getters públicos
